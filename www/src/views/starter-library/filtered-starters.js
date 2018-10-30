@@ -24,6 +24,23 @@ import ResetFilters from "../shared/reset-filters"
 import DebounceInput from "../../components/debounce-input"
 
 export default class FilteredStarterLibrary extends Component {
+  constructor(props) {
+    super(props)
+    const { urlState, setURLState } = this.props
+    if (
+      urlState.c.length === 0 &&
+      urlState.d.length === 0 &&
+      urlState.v.length === 0 &&
+      urlState.s === ""
+    ) {
+      console.log("setting v=2 #ewSGGo")
+      setTimeout(() => {
+        setURLState({ v: ["2"] })
+      }, 0)
+      // setURLState({ v: ["2"] })
+    }
+  }
+
   state = {
     sitesToShow: 12,
   }
@@ -49,6 +66,7 @@ export default class FilteredStarterLibrary extends Component {
   onChangeUrlWithText = value => this.props.setURLState({ s: value })
 
   render() {
+    console.log("filtered-starters render #k0cyqp", this.props.urlState)
     const { data, urlState, setURLState } = this.props
     const {
       setFiltersCategory,

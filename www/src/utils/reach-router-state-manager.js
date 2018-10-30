@@ -23,6 +23,7 @@ export default defaultURLState => Component => props => {
     })
     return navigate(`${location.pathname}?${queryString.stringify(finalState)}`)
   }
+  console.log("RRSM.render() #Xwh9p6")
   return (
     <Component
       setURLState={setURLState} // use this instead of `setState`
